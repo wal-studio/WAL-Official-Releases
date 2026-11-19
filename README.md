@@ -11,7 +11,8 @@ This public repository distributes the stable **WAL Android Launcher** APK only.
 - Attach `SHA256SUMS.txt` with a line in the standard format:
   `<64-character SHA-256>  WAL-Android-Launcher-MAJOR.MINOR.PATCH.apk`
 - The GitHub Release asset digest and the checksum file must match the APK bytes.
-- Increase Android `versionCode` for every published release. `versionName` must match the tag without the leading `v`.
+- `versionName` must match the tag without the leading `v`.
+- Derive `versionCode` from the Official Gradle build: `1 + (MAJOR - 1) * 1,000,000 + MINOR * 1,000 + PATCH`. This keeps `v1.0.0` at code `1` and guarantees increasing codes for later versions while `MINOR` and `PATCH` remain below `1000`.
 - Release notes should describe user-visible changes and known limitations.
 
 ## Required APK identity
