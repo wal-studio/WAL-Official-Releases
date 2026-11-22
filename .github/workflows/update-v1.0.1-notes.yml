@@ -1,0 +1,26 @@
+name: Update v1.0.1 release notes
+on:
+  push:
+    paths:
+      - ".github/workflows/update-v1.0.1-notes.yml"
+permissions:
+  contents: write
+jobs:
+  update-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Update published release description
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cat > release-notes.md <<'EOF'
+          WAL Android Launcher 1.0.1
+
+          - 진단 정보를 만들거나 전송하기 전에 사용자에게 동의를 받도록 변경했습니다.
+          - 사용자 동의 없이 진단 정보가 자동으로 전송되지 않습니다.
+          - 공식 안정 버전만 업데이트 대상으로 확인합니다.
+          - 사용자가 업데이트를 선택한 경우에만 설치 파일을 다운로드하며, 안전성을 확인한 후 설치를 진행합니다.
+          - 정식 시험판이나 호환되지 않는 업데이트는 업데이트 대상에서 제외합니다.
+          - 안드로이드 기본 설치 기능을 사용하며, 기존 앱 데이터는 유지됩니다.
+          EOF
+          gh release edit v1.0.1 --repo wal-studio/WAL-Official-Releases --notes-file release-notes.md
