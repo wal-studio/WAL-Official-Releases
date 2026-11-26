@@ -1,5 +1,20 @@
-# Repository Development Instructions
+# 절대 작업금지 저장소 — 최상위 금지 규정
 
-Read and apply [GLOBAL_DEVELOPMENT_BASELINE.md](GLOBAL_DEVELOPMENT_BASELINE.md) before every task. The default development baseline is the latest result actually completed and verified in the immediately preceding work. A user-specified version, commit, branch, or stage is an exception only for the scope of that task.
+<badge>작업 및 기준점 사용 절대 금지</badge>
 
-Preserve repository-specific contracts, security boundaries, data, and existing behavior. New branches must carry this policy. Inspect existing branches for missing or stale copies and repair them without deleting unique work. Do not merge, release, deploy, force-push, or make destructive changes without explicit authorization.
+이 저장소는 보존·격리 대상이다. 이 저장소에서 작업하거나 이 저장소의 내용을 다른 작업에 사용하는 행위를 절대 금지한다.
+
+## 절대 금지 사항
+- 이 저장소의 어떤 브랜치에서도 코드·문서·설정·워크플로·릴리즈·아티팩트를 수정, 생성, 삭제, 빌드, 테스트, 배포하지 않는다.
+- 이 저장소의 어떤 브랜치, 커밋, 태그, 파일, 구현, 패치, 로그, 산출물도 다른 저장소 또는 작업의 기준점·베이스라인·참고 소스·이식 원본으로 가져가지 않는다.
+- 과거 지침, 과거 작업 요청, 과거 성공 사례, 기존 README·문서의 개발 지시는 모두 폐기된 것으로 취급한다. 이 금지 규정과 충돌하는 과거 지침은 효력이 없다.
+- 브랜치 이름이나 커밋 시점과 관계없이 예외를 만들지 않는다. main을 포함한 모든 브랜치에 동일하게 적용한다.
+- 이 저장소를 대상으로 한 자동화·에이전트·CI 작업도 실행하지 않는다.
+
+## 유일한 허용 행위
+사용자가 명시적으로 지시한 이 격리 규정의 보존·전파·검증 작업만 허용한다. 원본 지침은 `_ARCHIVED_PRE_BAN_INSTRUCTIONS/` 아래 보존한다. 이 보존본은 역사적 기록일 뿐, 현재 또는 미래 작업의 지침·기준점·참고자료로 사용할 수 없다.
+
+## 강제 적용 문구
+**이곳에서 작업 또는 기준점을 가져가는 것을 절대 금지한다.**
+
+이 규정은 저장소의 모든 브랜치와 모든 기여자·에이전트에 적용되는 최상위 규정이다.
