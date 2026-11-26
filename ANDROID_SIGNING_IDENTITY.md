@@ -1,24 +1,7 @@
-# Android Signing Identity — Release Repository Requirement
+# 절대 작업금지 저장소
 
-This policy applies to every Android APK built from `wal-studio/WAL-Official-Releases`, including internal test builds, release candidates, and official releases.
+**이곳에서 작업 또는 기준점을 가져가는 것을 절대 금지한다.**
 
-## Immutable identity
+이 저장소는 보존·격리 대상이다. 모든 브랜치에서 코드·문서·설정·워크플로·릴리즈·아티팩트의 수정, 생성, 삭제, 빌드, 테스트, 배포를 금지한다. 이 저장소의 어떤 브랜치·커밋·태그·파일·구현·패치·로그·산출물도 다른 작업의 기준점·베이스라인·참고 소스·이식 원본으로 가져가거나 사용하지 않는다.
 
-- Application ID: `com.wayward.launcher.official.wal`
-- Required official signing certificate SHA-1: `D9BE7443EB247D27C958CC4250D7F5D1E078F740`
-
-## Mandatory behavior
-
-1. Sign every APK from this repository with the existing official key matching the required SHA-1.
-2. Never use a debug, temporary, generated, or alternate key as a fallback.
-3. If the official key or its protected credentials are unavailable, fail the signing/build step. Do not produce a substitute-signed APK.
-4. Inspect the certificate embedded in the actual output APK and compare its SHA-1 with the required value. Build configuration or a keystore filename is not sufficient evidence.
-5. Treat a missing or mismatched certificate as a hard failure. Do not distribute the APK or use it for installation, update, OAuth, or CloudSave compatibility testing.
-6. Keep the keystore, private key, and passwords out of Git. Use protected CI secrets or another explicitly approved secure signing mechanism.
-7. Preserve the application ID and signing identity to maintain Android update continuity and integrations such as Google OAuth and CloudSave.
-
-## Scope
-
-This requirement is specific to Android artifacts produced from the official release repository. It does not require experimental APKs from the separate Android development repository to use the production signing key.
-
-The README states the policy; build automation must independently enforce it by inspecting the actual APK certificate and failing on mismatch. A documentation-only check is not proof that the build pipeline enforces the requirement.
+과거 지침과 개발 지시는 모두 효력을 상실한다. 원본 지침은 _ARCHIVED_PRE_BAN_INSTRUCTIONS/에 역사적 보존 목적으로만 저장하며 절대 참고·재사용하지 않는다. 사용자 명시 지시인 격리 규정의 보존·전파·검증만 허용한다. main을 포함한 모든 브랜치에 예외 없이 적용한다.
