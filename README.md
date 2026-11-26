@@ -1,50 +1,9 @@
-# WAL Launcher — Official Releases
+# 절대 작업금지 저장소
 
-This repository is the official release and release-candidate repository for WAL Launcher across supported platforms, including Android and PC. It is used both to prepare and test the next release and to publish approved official updates. It is not limited to hosting already-published stable binaries.
+**이곳에서 작업 또는 기준점을 가져가는 것을 절대 금지한다.**
 
-## Release repository baseline and workflow
+이 저장소는 보존·격리 대상이다. 모든 브랜치에서 코드, 문서, 설정, 워크플로, 빌드, 테스트, 배포 작업을 금지한다. 이 저장소의 브랜치·커밋·파일·구현·패치·로그·산출물을 다른 작업의 기준점, 베이스라인, 참고 소스 또는 이식 원본으로 사용하는 것도 절대 금지한다.
 
-- The baseline for release work is the **most advanced validated test implementation after the latest official update**.
-- Unless the user explicitly instructs a version upgrade and official release, continue implementation and testing from that most advanced post-release test version. Do not silently reset work to the last public binary or an older commit.
-- Identify the most advanced test implementation by actual integrated functionality, preserved behavior, and verification evidence—not by commit date, commit count, branch name, or version label alone.
-- Integrate and test new features only after they have been demonstrated in the development repositories. Preserve the last official update's working behavior and compatibility while doing so.
-- Release-candidate builds and tests are permitted in this repository. They are not official releases merely because they are built or uploaded as test artifacts.
-- Do not create or publish an official version, stable release, public release announcement, or production promotion unless the user explicitly instructs an official version upgrade/release.
-- Keep platform-specific packaging and signing requirements separate. The Android identity requirements below apply to every Android APK built from this repository, including release-candidate and test APKs.
+과거 README, AGENTS, 개발 지침, 작업 요청 및 성공 사례는 모두 효력을 상실한다. 원본 지침은 `_ARCHIVED_PRE_BAN_INSTRUCTIONS/`에 역사적 보존 목적으로만 저장되며 절대 참고하거나 재사용하지 않는다.
 
-## Android APK identity — immutable
-
-| Field | Required value |
-|---|---|
-| Package ID | `com.wayward.launcher.official.wal` |
-| Official signer certificate SHA-1 | `D9BE7443EB247D27C958CC4250D7F5D1E078F740` |
-
-Every Android APK produced from this repository—including internal test builds, release-candidate builds, and official releases—must be signed with the existing official signing key matching the SHA-1 above.
-
-- Never substitute a debug, temporary, newly generated, or different signing key.
-- If the existing official key is unavailable, signing must fail. Do not silently fall back to another key.
-- Verify the certificate on the actual generated APK; do not rely only on Gradle configuration, keystore filenames, or build logs.
-- A certificate mismatch or missing certificate is a hard failure. Do not distribute or use that APK for installation, update, OAuth, or CloudSave compatibility testing.
-- Keep the keystore, private key, and passwords out of the repository. Supply them only through protected build secrets or another approved secure signing mechanism.
-- Preserve the package ID and signer identity so Android update compatibility and integrations such as Google OAuth and CloudSave remain intact.
-
-## Android stable release contract
-
-- Publish only fully tested, user-approved stable releases.
-- Use a tag matching `vMAJOR.MINOR.PATCH`, for example `v1.0.1`.
-- Do not mark stable releases as draft or prerelease.
-- Attach exactly one installable, signed APK named `WAL-Android-Launcher-MAJOR.MINOR.PATCH.apk`.
-- Attach `SHA256SUMS.txt` with a line in the standard format:
-  `<64-character SHA-256>  WAL-Android-Launcher-MAJOR.MINOR.PATCH.apk`
-- The GitHub Release asset digest and the checksum file must match the APK bytes.
-- `versionName` must match the tag without the leading `v`.
-- Derive `versionCode` from the Official Gradle build: `1 + (MAJOR - 1) * 1,000,000 + MINOR * 1,000 + PATCH`. This keeps `v1.0.0` at code `1` and guarantees increasing codes for later versions while `MINOR` and `PATCH` remain below `1000`.
-- Release notes should describe user-visible changes and known limitations.
-
-The in-app updater reads only published stable releases, ignores draft/prerelease releases, and verifies the SHA-256, package ID, version, and signing certificate before invoking Android's user-approved package installer.
-
-## Do not upload
-
-- Keystores, private keys, passwords, OAuth secrets, pairing credentials, or user data.
-- Unverified builds or Android APKs signed with a different certificate.
-- Source archives or temporary CI artifacts as official release assets.
+사용자가 명시적으로 지시한 격리 규정의 보존·전파·검증만 허용한다. main을 포함한 모든 브랜치에 예외 없이 적용한다.
