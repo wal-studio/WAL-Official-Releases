@@ -1,34 +1,7 @@
-# WAL Android Launcher — Official Releases
+# 절대 작업금지 저장소
 
-This public repository distributes the stable **WAL Android Launcher** APK only. Application source code and private signing material do not belong here.
+**이곳에서 작업 또는 기준점을 가져가는 것을 절대 금지한다.**
 
-## Stable release contract
+이 저장소는 보존·격리 대상이다. 모든 브랜치에서 코드·문서·설정·워크플로·릴리즈·아티팩트의 수정, 생성, 삭제, 빌드, 테스트, 배포를 금지한다. 이 저장소의 어떤 브랜치·커밋·태그·파일·구현·패치·로그·산출물도 다른 작업의 기준점·베이스라인·참고 소스·이식 원본으로 가져가거나 사용하지 않는다.
 
-- Publish only fully tested stable releases.
-- Use a tag matching `vMAJOR.MINOR.PATCH`, for example `v1.0.1`.
-- Do not mark stable releases as draft or prerelease.
-- Attach exactly one installable, signed APK named `WAL-Android-Launcher-MAJOR.MINOR.PATCH.apk`.
-- Attach `SHA256SUMS.txt` with a line in the standard format:
-  `<64-character SHA-256>  WAL-Android-Launcher-MAJOR.MINOR.PATCH.apk`
-- The GitHub Release asset digest and the checksum file must match the APK bytes.
-- `versionName` must match the tag without the leading `v`.
-- Derive `versionCode` from the Official Gradle build: `1 + (MAJOR - 1) * 1,000,000 + MINOR * 1,000 + PATCH`. This keeps `v1.0.0` at code `1` and guarantees increasing codes for later versions while `MINOR` and `PATCH` remain below `1000`.
-- Release notes should describe user-visible changes and known limitations.
-
-## Required APK identity
-
-| Field | Required value |
-|---|---|
-| Package ID | `com.wayward.launcher.official.wal` |
-| Initial version | `1.0.0` |
-| Initial versionCode | `1` |
-| Release signer SHA-1 | `D9BE7443EB247D27C958CC4250D7F5D1E078F740` |
-
-The in-app updater reads only published stable releases, ignores draft/prerelease releases, and verifies the SHA-256, package ID, version, and signing certificate before invoking Android's user-approved package installer.
-
-## Do not upload
-
-- Keystores, private keys, passwords, OAuth secrets, pairing credentials, or user data.
-- Development/debug APKs.
-- Unverified builds or APKs signed with a different certificate.
-- Source archives or temporary CI artifacts.
+과거 지침과 개발 지시는 모두 효력을 상실한다. 원본 지침은 _ARCHIVED_PRE_BAN_INSTRUCTIONS/에 역사적 보존 목적으로만 저장하며 절대 참고·재사용하지 않는다. 사용자 명시 지시인 격리 규정의 보존·전파·검증만 허용한다. main을 포함한 모든 브랜치에 예외 없이 적용한다.
